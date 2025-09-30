@@ -20,10 +20,6 @@
     { "key": "p", "action": "print-button", "description": "Print anything", "when": "always" }
   ],
 
-  "facility:patient": [
-    { "key": "h", "action": "patient-home", "description": "Go to Patient Home", "when": "always" }
-  ],
-
   "facility:patient:search": [
     { "key": "shift+?", "action": "show-shortcuts", "description": "Show Keyboard Shortcuts", "when": "always" },
     { "key": "shift+enter", "action": "submit-action", "description": "Submit Current Action", "when": "always" },
