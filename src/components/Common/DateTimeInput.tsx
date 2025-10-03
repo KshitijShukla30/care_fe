@@ -3,10 +3,9 @@ import * as React from "react";
 
 import { Input } from "@/components/ui/input";
 
-function toISOWithTimezone(localVal: string): string {
-  if (!localVal) return "";
+function toISOWithTimezone(localVal: string) {
   const localDate = new Date(localVal);
-  if (isNaN(localDate.getTime())) return "";
+  if (isNaN(localDate.getTime())) return undefined;
   return localDate.toISOString();
 }
 
@@ -35,7 +34,14 @@ export function DateTimeInput({
       type="datetime-local"
       value={localValue}
       onChange={(e) => {
-        onDateChange?.(toISOWithTimezone(e.target.value) || "");
+        if (!e.target.value) {
+          onDateChange?.("");
+          return;
+        }
+        const isoValue = toISOWithTimezone(e.target.value);
+        if (isoValue) {
+          onDateChange?.(isoValue);
+        }
       }}
     />
   );
