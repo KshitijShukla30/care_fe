@@ -1,0 +1,9 @@
+[
+  {
+    "name": "Bulk Import Delivery Order",
+    "destination": "52789a97-7768-43e1-a966-8849b6e04b09",
+    "status": "pending",
+    "note": "This delivery order was created by a bulk import script",
+    "extensions": {}
+  }
+]

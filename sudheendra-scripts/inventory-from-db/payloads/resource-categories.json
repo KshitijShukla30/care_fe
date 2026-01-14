@@ -1,0 +1,282 @@
+[
+  {
+    "title": "Ortho Implants",
+    "slug_value": "pk-ortho-implants",
+    "resource_type": "product_knowledge",
+    "resource_sub_type": "all:other",
+    "meta": {
+      "ssmm_pharm_category_id": 521
+    },
+    "$facility": "2a8bb4bd-4608-4a55-a35c-b7c92bc037b3"
+  },
+  {
+    "title": "Ortho Implants",
+    "slug_value": "cid-ortho-implants",
+    "resource_type": "charge_item_definition",
+    "resource_sub_type": "all:other",
+    "meta": {
+      "ssmm_pharm_category_id": 521
+    },
+    "$facility": "2a8bb4bd-4608-4a55-a35c-b7c92bc037b3"
+  },
+  {
+    "title": "Non Surgical",
+    "slug_value": "pk-non-surgical",
+    "resource_type": "product_knowledge",
+    "resource_sub_type": "all:other",
+    "meta": {
+      "ssmm_pharm_category_id": 522
+    },
+    "$facility": "2a8bb4bd-4608-4a55-a35c-b7c92bc037b3"
+  },
+  {
+    "title": "Non Surgical",
+    "slug_value": "cid-non-surgical",
+    "resource_type": "charge_item_definition",
+    "resource_sub_type": "all:other",
+    "meta": {
+      "ssmm_pharm_category_id": 522
+    },
+    "$facility": "2a8bb4bd-4608-4a55-a35c-b7c92bc037b3"
+  },
+  {
+    "title": "Medicines",
+    "slug_value": "pk-medicines",
+    "resource_type": "product_knowledge",
+    "resource_sub_type": "all:other",
+    "meta": {
+      "ssmm_pharm_category_id": 523
+    },
+    "$facility": "2a8bb4bd-4608-4a55-a35c-b7c92bc037b3"
+  },
+  {
+    "title": "Medicines",
+    "slug_value": "cid-medicines",
+    "resource_type": "charge_item_definition",
+    "resource_sub_type": "all:other",
+    "meta": {
+      "ssmm_pharm_category_id": 523
+    },
+    "$facility": "2a8bb4bd-4608-4a55-a35c-b7c92bc037b3"
+  },
+  {
+    "title": "General",
+    "slug_value": "pk-general",
+    "resource_type": "product_knowledge",
+    "resource_sub_type": "all:other",
+    "meta": {
+      "ssmm_pharm_category_id": 524
+    },
+    "$facility": "2a8bb4bd-4608-4a55-a35c-b7c92bc037b3"
+  },
+  {
+    "title": "General",
+    "slug_value": "cid-general",
+    "resource_type": "charge_item_definition",
+    "resource_sub_type": "all:other",
+    "meta": {
+      "ssmm_pharm_category_id": 524
+    },
+    "$facility": "2a8bb4bd-4608-4a55-a35c-b7c92bc037b3"
+  },
+  {
+    "title": "Ortho",
+    "slug_value": "pk-ortho",
+    "resource_type": "product_knowledge",
+    "resource_sub_type": "all:other",
+    "meta": {
+      "ssmm_pharm_category_id": 525
+    },
+    "$facility": "2a8bb4bd-4608-4a55-a35c-b7c92bc037b3"
+  },
+  {
+    "title": "Ortho",
+    "slug_value": "cid-ortho",
+    "resource_type": "charge_item_definition",
+    "resource_sub_type": "all:other",
+    "meta": {
+      "ssmm_pharm_category_id": 525
+    },
+    "$facility": "2a8bb4bd-4608-4a55-a35c-b7c92bc037b3"
+  },
+  {
+    "title": "Gynec",
+    "slug_value": "pk-gynec",
+    "resource_type": "product_knowledge",
+    "resource_sub_type": "all:other",
+    "meta": {
+      "ssmm_pharm_category_id": 526
+    },
+    "$facility": "2a8bb4bd-4608-4a55-a35c-b7c92bc037b3"
+  },
+  {
+    "title": "Gynec",
+    "slug_value": "cid-gynec",
+    "resource_type": "charge_item_definition",
+    "resource_sub_type": "all:other",
+    "meta": {
+      "ssmm_pharm_category_id": 526
+    },
+    "$facility": "2a8bb4bd-4608-4a55-a35c-b7c92bc037b3"
+  },
+  {
+    "title": "Paediatric",
+    "slug_value": "pk-paediatric",
+    "resource_type": "product_knowledge",
+    "resource_sub_type": "all:other",
+    "meta": {
+      "ssmm_pharm_category_id": 527
+    },
+    "$facility": "2a8bb4bd-4608-4a55-a35c-b7c92bc037b3"
+  },
+  {
+    "title": "Paediatric",
+    "slug_value": "cid-paediatric",
+    "resource_type": "charge_item_definition",
+    "resource_sub_type": "all:other",
+    "meta": {
+      "ssmm_pharm_category_id": 527
+    },
+    "$facility": "2a8bb4bd-4608-4a55-a35c-b7c92bc037b3"
+  },
+  {
+    "title": "Cardiology",
+    "slug_value": "pk-cardiology",
+    "resource_type": "product_knowledge",
+    "resource_sub_type": "all:other",
+    "meta": {
+      "ssmm_pharm_category_id": 528
+    },
+    "$facility": "2a8bb4bd-4608-4a55-a35c-b7c92bc037b3"
+  },
+  {
+    "title": "Cardiology",
+    "slug_value": "cid-cardiology",
+    "resource_type": "charge_item_definition",
+    "resource_sub_type": "all:other",
+    "meta": {
+      "ssmm_pharm_category_id": 528
+    },
+    "$facility": "2a8bb4bd-4608-4a55-a35c-b7c92bc037b3"
+  },
+  {
+    "title": "Lab Materials",
+    "slug_value": "pk-lab-materials",
+    "resource_type": "product_knowledge",
+    "resource_sub_type": "all:other",
+    "meta": {
+      "ssmm_pharm_category_id": 529
+    },
+    "$facility": "2a8bb4bd-4608-4a55-a35c-b7c92bc037b3"
+  },
+  {
+    "title": "Lab Materials",
+    "slug_value": "cid-lab-materials",
+    "resource_type": "charge_item_definition",
+    "resource_sub_type": "all:other",
+    "meta": {
+      "ssmm_pharm_category_id": 529
+    },
+    "$facility": "2a8bb4bd-4608-4a55-a35c-b7c92bc037b3"
+  },
+  {
+    "title": "Surgical",
+    "slug_value": "pk-surgical",
+    "resource_type": "product_knowledge",
+    "resource_sub_type": "all:other",
+    "meta": {
+      "ssmm_pharm_category_id": 530
+    },
+    "$facility": "2a8bb4bd-4608-4a55-a35c-b7c92bc037b3"
+  },
+  {
+    "title": "Surgical",
+    "slug_value": "cid-surgical",
+    "resource_type": "charge_item_definition",
+    "resource_sub_type": "all:other",
+    "meta": {
+      "ssmm_pharm_category_id": 530
+    },
+    "$facility": "2a8bb4bd-4608-4a55-a35c-b7c92bc037b3"
+  },
+  {
+    "title": "X-ray",
+    "slug_value": "pk-x-ray",
+    "resource_type": "product_knowledge",
+    "resource_sub_type": "all:other",
+    "meta": {
+      "ssmm_pharm_category_id": 531
+    },
+    "$facility": "2a8bb4bd-4608-4a55-a35c-b7c92bc037b3"
+  },
+  {
+    "title": "X-ray",
+    "slug_value": "cid-x-ray",
+    "resource_type": "charge_item_definition",
+    "resource_sub_type": "all:other",
+    "meta": {
+      "ssmm_pharm_category_id": 531
+    },
+    "$facility": "2a8bb4bd-4608-4a55-a35c-b7c92bc037b3"
+  },
+  {
+    "title": "Ayurvedam",
+    "slug_value": "pk-ayurvedam",
+    "resource_type": "product_knowledge",
+    "resource_sub_type": "all:other",
+    "meta": {
+      "ssmm_pharm_category_id": 532
+    },
+    "$facility": "2a8bb4bd-4608-4a55-a35c-b7c92bc037b3"
+  },
+  {
+    "title": "Ayurvedam",
+    "slug_value": "cid-ayurvedam",
+    "resource_type": "charge_item_definition",
+    "resource_sub_type": "all:other",
+    "meta": {
+      "ssmm_pharm_category_id": 532
+    },
+    "$facility": "2a8bb4bd-4608-4a55-a35c-b7c92bc037b3"
+  },
+  {
+    "title": "Homeo",
+    "slug_value": "pk-homeo",
+    "resource_type": "product_knowledge",
+    "resource_sub_type": "all:other",
+    "meta": {
+      "ssmm_pharm_category_id": 533
+    },
+    "$facility": "2a8bb4bd-4608-4a55-a35c-b7c92bc037b3"
+  },
+  {
+    "title": "Homeo",
+    "slug_value": "cid-homeo",
+    "resource_type": "charge_item_definition",
+    "resource_sub_type": "all:other",
+    "meta": {
+      "ssmm_pharm_category_id": 533
+    },
+    "$facility": "2a8bb4bd-4608-4a55-a35c-b7c92bc037b3"
+  },
+  {
+    "title": "Neuro Implants",
+    "slug_value": "pk-neuro-implants",
+    "resource_type": "product_knowledge",
+    "resource_sub_type": "all:other",
+    "meta": {
+      "ssmm_pharm_category_id": 541
+    },
+    "$facility": "2a8bb4bd-4608-4a55-a35c-b7c92bc037b3"
+  },
+  {
+    "title": "Neuro Implants",
+    "slug_value": "cid-neuro-implants",
+    "resource_type": "charge_item_definition",
+    "resource_sub_type": "all:other",
+    "meta": {
+      "ssmm_pharm_category_id": 541
+    },
+    "$facility": "2a8bb4bd-4608-4a55-a35c-b7c92bc037b3"
+  }
+]
