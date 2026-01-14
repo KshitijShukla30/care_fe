@@ -8,7 +8,7 @@ import {
   ChargeItemDefinitionCreate,
   ChargeItemDefinitionStatus,
 } from "@/types/billing/chargeItemDefinition/chargeItemDefinition";
-import { LocationRead } from "@/types/location/location";
+import { LocationRead, LocationWrite } from "@/types/location/location";
 import { PaginatedResponse } from "@/Utils/request/types";
 import dotenv from "dotenv";
 import { createSlug, normalizeTitle, request } from "sudheendra-scripts/utils";
@@ -29,6 +29,7 @@ import {
   SupplyDeliveryType,
 } from "@/types/inventory/supplyDelivery/supplyDelivery";
 import itemsJson from "./data/ITEM.json";
+import locationMasterJson from "./data/LOCATION_MASTER.json";
 import pharmacyCategories from "./data/PHARM_CATEGORY.json";
 import supplyDeliveriesJson from "./data/stock.json";
 dotenv.config({ path: [".env.local", ".env"] });
@@ -54,8 +55,20 @@ type SupplyDeliveryRow = {
   CARE_LOCATION_ID: string;
 };
 
-const items = (itemsJson as ItemRow[]).slice(0, 400);
+const items = itemsJson as ItemRow[];
 const stock = supplyDeliveriesJson as SupplyDeliveryRow[];
+
+export const getLocationsToImport = () => {
+  return locationMasterJson.map((location) => ({
+    name: location.DESCRIPTION,
+    mode: "kind",
+    form: "ro",
+    status: "active",
+    operational_status: "C",
+    description: location.DESCRIPTION,
+    organizations: [],
+  })) satisfies LocationWrite[];
+};
 
 export const getResourceCategoriesToImport = () => {
   return pharmacyCategories.flatMap((category) => {
@@ -186,18 +199,18 @@ export const getProductToImport = () => {
 export const getDeliveryOrdersToImport = () => {
   const deliveryOrders = new Map(
     stock
-      .filter(
-        (stock) =>
-          !!stock.CARE_LOCATION_ID &&
-          items.find((item) => item.ID === stock.ITEM_ID),
-      )
-      .map(() => {
-        const destinationId = "ccfc4ed4-f317-4935-84b7-e9770358883f";
+      .filter((stock) => items.find((item) => item.ID === stock.ITEM_ID))
+      .map((stock) => {
+        if (!stock.CARE_LOCATION_ID) {
+          throw new Error(
+            `Care location ID is required for stock ${stock.ITEM_ID}`,
+          );
+        }
         return [
-          destinationId,
+          stock.CARE_LOCATION_ID,
           {
             name: `Bulk Import Delivery Order`,
-            destination: destinationId,
+            destination: stock.CARE_LOCATION_ID,
             status: DeliveryOrderStatus.pending,
             note: "This delivery order was created by a bulk import script",
             extensions: {},
@@ -210,22 +223,22 @@ export const getDeliveryOrdersToImport = () => {
 
 export const getSupplyDeliveriesToImport = () => {
   return stock
-    .filter(
-      (stock) =>
-        !!stock.CARE_LOCATION_ID &&
-        items.find((item) => item.ID === stock.ITEM_ID),
-    )
+    .filter((stock) => items.find((item) => item.ID === stock.ITEM_ID))
     .map((stock) => {
+      if (!stock.CARE_LOCATION_ID) {
+        throw new Error(
+          `Care location ID is required for stock ${stock.ITEM_ID}`,
+        );
+      }
       const item = items.find((item) => item.ID === stock.ITEM_ID)!;
-      const destinationId = "ccfc4ed4-f317-4935-84b7-e9770358883f";
       return {
         status: SupplyDeliveryStatus.completed,
         supplied_item_type: SupplyDeliveryType.product,
         supplied_item_quantity: stock.QTY,
         $supplied_item__product_knowledge: `f-${FACILITY_ID}-${getProductKnowledgeSlug(item)}`,
         $supplied_item__charge_item_definition: `f-${FACILITY_ID}-${getChargeItemDefinitionSlug(item)}`,
-        $order__destination: destinationId,
-        destination: destinationId,
+        $order__destination: stock.CARE_LOCATION_ID,
+        destination: stock.CARE_LOCATION_ID,
         extensions: {},
       };
     });

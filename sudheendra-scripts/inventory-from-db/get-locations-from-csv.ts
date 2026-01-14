@@ -30,10 +30,10 @@ async function writePayloads(payload: Record<string, object[]>) {
 
 const addCareLocationToStock = () => {
   const csv = readFileSync(
-    `./sudheendra-scripts/inventory-from-db/data/ssmm-locations.csv`,
+    `./sudheendra-scripts/inventory-from-db/data/location-mapping.csv`,
     { encoding: "utf-8" },
   );
-  const [header, ...rows] = csv.split("\n");
+  const [, ...rows] = csv.split("\n");
   for (const row of rows) {
     const [ssmLocation, careLocationId] = row.split(",");
     const id = locationMasterJson.find(
