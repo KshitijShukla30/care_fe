@@ -1,6 +1,7 @@
 import { useQuery } from "@tanstack/react-query";
 import { ArrowUpRightSquare, PrinterIcon } from "lucide-react";
 import { Link } from "raviger";
+import { useEffect, useState } from "react";
 import { useTranslation } from "react-i18next";
 
 import CareIcon from "@/CAREUI/icons/CareIcon";
@@ -23,6 +24,7 @@ import {
   TableHeader,
   TableRow,
 } from "@/components/Common/Table";
+import UserSelector from "@/components/Common/UserSelector";
 import PatientIdentifierFilter from "@/components/Patient/PatientIdentifierFilter";
 
 import useFilters from "@/hooks/useFilters";
@@ -34,6 +36,8 @@ import {
   InvoiceRead,
 } from "@/types/billing/invoice/invoice";
 import invoiceApi from "@/types/billing/invoice/invoiceApi";
+import { UserReadMinimal } from "@/types/user/user";
+import userApi from "@/types/user/userApi";
 import query from "@/Utils/request/query";
 import { formatDateTime } from "@/Utils/utils";
 
@@ -47,10 +51,35 @@ export default function InvoicesData({
   showIdentifierFilter?: boolean;
 }) {
   const { t } = useTranslation();
+  const [createdBy, setCreatedBy] = useState<UserReadMinimal | undefined>(
+    undefined,
+  );
   const { qParams, updateQuery, Pagination, resultsPerPage } = useFilters({
     limit: RESULTS_PER_PAGE_LIMIT,
     disableCache: true,
   });
+
+  // Resolve created_by_username from URL to user object
+  const { data: selectedUser } = useQuery({
+    queryKey: ["user", qParams.created_by_username],
+    queryFn: query(userApi.get, {
+      pathParams: { username: qParams.created_by_username },
+    }),
+    enabled: !!qParams.created_by_username && !createdBy,
+  });
+
+  useEffect(() => {
+    if (selectedUser && qParams.created_by_username) {
+      setCreatedBy(selectedUser);
+      updateQuery({ created_by: selectedUser.id });
+    }
+  }, [selectedUser]);
+
+  useEffect(() => {
+    if (createdBy && !qParams.created_by) {
+      setCreatedBy(undefined);
+    }
+  }, [qParams.created_by]);
 
   const filters = [invoiceStatusFilter("status")];
 
@@ -80,6 +109,7 @@ export default function InvoicesData({
         number: qParams.search,
         status: qParams.status,
         patient: qParams.patient,
+        created_by: qParams.created_by,
       },
     }),
   });
@@ -101,6 +131,19 @@ export default function InvoicesData({
               className="h-9 rounded-md"
             />
           )}
+
+          <UserSelector
+            selected={createdBy}
+            onChange={(user) => {
+              setCreatedBy(user);
+              updateQuery({
+                created_by: user.id,
+                created_by_username: user.username,
+              });
+            }}
+            placeholder={t("filter_by_user")}
+            facilityId={facilityId}
+          />
 
           <div>
             <div className="relative flex-1">
